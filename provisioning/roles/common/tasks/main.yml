@@ -1,0 +1,20 @@
+# roles/common/tasks/main.yml
+---
+- name: Groupinstall Development Tools
+  yum: name={{ item }} state=present update_cache=yes
+  with_items:
+    - "@development"
+
+- name: Install a list of tools for common use
+  yum:
+    name:
+      - wget
+      - unzip
+      - tree
+      - openssl
+      - openssl-devel
+      - nginx
+    state: present
+
+
+       

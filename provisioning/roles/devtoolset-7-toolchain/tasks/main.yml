@@ -1,0 +1,19 @@
+# roles/devtoolset-7-toolchain/tasks/main.yml
+---
+- name: Install devtoolset-7-toolchain (part1)
+  yum:
+    name:
+      - centos-release-scl-rh
+    state: present
+
+- name: Install devtoolset-7-toolchain (part2)
+  shell:
+    cmd: yum install -y --setopt=tsflags=nodocs devtoolset-7-gcc devtoolset-7-gcc-c++ devtoolset-7-gcc-gfortran devtoolset-7-gdb make  >> somelog.txt
+
+- name: Install devtoolset-7-toolchain (part3)
+  shell:
+    cmd: rpm -V devtoolset-7-gcc devtoolset-7-gcc-c++ devtoolset-7-gcc-gfortran devtoolset-7-gdb make && yum -y clean all --enablerepo='*'  >> somelog.txt
+
+- name: Install devtoolset-7-toolchain (part4)
+  shell:
+    cmd: ln -s /opt/rh/devtoolset-7/enable /etc/profile.d/rhgccenable.sh  >> somelog.txt && chmod +x /etc/profile.d/rhgccenable.sh  >> somelog.txt

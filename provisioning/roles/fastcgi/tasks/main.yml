@@ -1,0 +1,13 @@
+# roles/fastcgi/tasks/main.yml
+---
+- name: Install a list of tools for fastcgi use
+  yum:
+    name:
+      - fcgi-devel
+      - proj-devel
+      - log4cplus
+      - log4cplus-devel
+    state: present
+     
+
+       

@@ -1,0 +1,11 @@
+---
+  - name: EOEPCA local development environment
+    hosts: all
+    become: yes
+    roles:
+      - common
+      - fastcgi
+      - devtoolset-7-toolchain
+      - geerlingguy.git
+      - geerlingguy.java
+      - bbaassssiiee.ansible_role_cmake

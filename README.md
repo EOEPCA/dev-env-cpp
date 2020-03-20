@@ -1,9 +1,22 @@
-# dev-env
-Tools and environment definitions for local EOEPCA service development activities
+# dev-env-cpp
+Tools and environment definitions for local EOEPCA service development activities for C++
 
 ## Usage
-1. Install Vagrant (https://www.vagrantup.com/docs/installation/)
-2. Download EOEPCA development environment template 'wget https://github.com/EOEPCA/dev-env/archive/master.zip'
-3. Unzip template and get into created directory
-4. Initiate EOEPCA development environment in text-only mode (vagrant up) or (DEV_DESKTOP=true vagrant up) for the graphical user environment
-5. Access the development environment (vagrant ssh)
+1. Download and install [VirtualBox](https://www.virtualbox.org/) 
+
+2. Download and install the appropriate [Vagrant package for your OS](https://www.vagrantup.com/downloads.html).
+
+3. Download EOEPCA development environment template for c++ 
+    
+    wget https://github.com/EOEPCA/dev-env-cpp/archive/develop.zip'
+
+4. To build and instantiate the EOEPCA development environment run the following command:
+
+    vagrant up --provision
+
+5. To access the development environment via ssh
+
+    vagrant ssh
+
+6. To access the development environment with CentOs GUI open VirtualBox select the running the dev-env-cpp VM then click on the Show button.
+

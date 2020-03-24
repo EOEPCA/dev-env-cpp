@@ -6,7 +6,7 @@
       - common
       - fastcgi
       - devtoolset-7-toolchain
-      - geerlingguy.git
-      - geerlingguy.java
+      - robertdebock.git
       - gantsign.visual-studio-code
       - bbaassssiiee.ansible_role_cmake
+      - gantsign.minikube

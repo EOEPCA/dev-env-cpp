@@ -136,3 +136,16 @@
   file:
     path: /vagrant
     state: directory
+
+
+- name: download argo-linux
+  get_url:
+    url: https://github.com/argoproj/argo/releases/download/{{ argo_version }}/argo-linux-amd64
+    dest: /usr/local/bin/argo
+    mode: 0777
+
+- name: install Argo Controller
+  shell: kubectl create namespace argo && kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo/stable/manifests/install.yaml
+
+- name: granting admin priviledges
+  shell: kubectl create rolebinding default-admin --clusterrole=admin --serviceaccount=default:default

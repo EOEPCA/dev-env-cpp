@@ -1,7 +1,5 @@
+# roles/minikube/tasks/main.yml
 ---
-- name: install system updates
-  yum: name=* state=latest update_cache=yes
-
 - name: Disable SELinux
   selinux:
     state: disabled
@@ -19,10 +17,6 @@
   file:
     path: /swapfile
     state: absent
-
-- name: install prerequisites
-  yum:
-    name: [ vim, socat, device-mapper-persistent-data, lvm2, telnet, tcpdump ]
 
 - name: download minikube rpm
   get_url:
@@ -140,7 +134,7 @@
 
 - name: download argo-linux
   get_url:
-    url: https://github.com/argoproj/argo/releases/download/{{ argo_version }}/argo-linux-amd64
+    url: https://github.com/argoproj/argo/releases/download/v{{ argo_version }}/argo-linux-amd64
     dest: /usr/local/bin/argo
     mode: 0777
 

@@ -131,7 +131,6 @@
     path: /vagrant
     state: directory
 
-
 - name: download argo-linux
   get_url:
     url: https://github.com/argoproj/argo/releases/download/v{{ argo_version }}/argo-linux-amd64
@@ -143,3 +142,10 @@
 
 - name: granting admin priviledges
   shell: kubectl create rolebinding default-admin --clusterrole=admin --serviceaccount=default:default
+  
+# temporary hack  
+- name: Stop iptables service
+  service:
+    name: iptables
+    enabled: yes
+    state: stopped

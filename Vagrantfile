@@ -70,22 +70,33 @@ Vagrant.configure("2") do |config|
   # SHELL
 
 
-  # Installing GNOME Desktop with shell commands
-  config.vm.provision "shell", inline: <<-SHELL
 
-    #
-    # General update
-    #
-    sudo yum update -y
+  # Section for Graphical Desktop 
+  if ENV['DEV_DESKTOP']
+    # Installing GNOME Desktop with shell commands
+    config.vm.provision "shell", inline: <<-SHELL
 
-    #
-    # GUI
-    #
-    sudo yum -y groupinstall "GNOME Desktop"
-    sudo systemctl set-default graphical.target
-    sudo systemctl start graphical.target
+      #
+      # General update
+      #
+      sudo yum update -y
 
-  SHELL
+      #
+      # GUI
+      #
+      sudo yum -y groupinstall "GNOME Desktop"
+      sudo systemctl set-default graphical.target
+      sudo systemctl start graphical.target
+
+    SHELL
+
+
+    config.vm.provider "virtualbox" do |vb|
+      # Display the VirtualBox GUI when booting the machine
+      vb.gui = true
+    end
+
+  end
  
 
   # Ansisble provision

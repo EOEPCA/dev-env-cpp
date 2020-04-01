@@ -17,4 +17,23 @@
     state: present
 
 
+- name: Remove firewalld service
+  yum:
+    name: firewalld
+    state: absent
+
+- name: Install iptables-services
+  yum:
+    name: iptables-services
+    state: present
+
+- name: Enable iptables service
+  service:
+    name: iptables
+    enabled: yes
+    state: started
+
+
+
+
        

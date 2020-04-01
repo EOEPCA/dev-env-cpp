@@ -1,5 +1,5 @@
 # from galaxy
-- src: geerlingguy.git
-- src: geerlingguy.java
+- src: robertdebock.git
 - src: gantsign.visual-studio-code
 - src: bbaassssiiee.ansible_role_cmake
+- src: geerlingguy.docker

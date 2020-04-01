@@ -2,8 +2,4 @@
 - src: robertdebock.git
 - src: gantsign.visual-studio-code
 - src: bbaassssiiee.ansible_role_cmake
-#- src: geerlingguy.docker
-- src: andrewrothstein.jq
-#- src: geerlingguy.swap
-#- src: geerlingguy.kubernetes
-#- src: gantsign.minikube
+- src: geerlingguy.docker
